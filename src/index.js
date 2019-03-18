@@ -1,9 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import 'bootstrap/dist/css/bootstrap.css'
-import Couner from './components/counter'
+import App from './components/app'
 
 ReactDOM.render(
-    <Couner/>,
-    document.getElementById('root')
+    <App/>,
+    document.getElementById('container')
 )

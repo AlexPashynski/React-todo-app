@@ -1,9 +1,8 @@
 {
-  "name": "my_react",
+  "name": "todo",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "bootstrap": "^4.1.1",
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
     "react-scripts": "2.1.5"
