@@ -1,13 +1,7 @@
 import { createStore } from 'redux';
 
 const initialState = {
-    items: [
-        {
-            id: 0,
-            title: 'Learn react',
-            completed: false
-        }
-    ],
+    items: [],
     filters: [
         {
             id: 1,
