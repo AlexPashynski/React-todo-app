@@ -1,5 +1,6 @@
 import React, {Component, Fragment} from 'react';
 import TodoSection from './todo-section'
+import FilterSection from './filter-section'
 import FormsSection from './forms-section'
 import store from './store'
 
@@ -13,7 +14,8 @@ class App extends Component {
         return (
             <Fragment>
                 <FormsSection/>
-                <TodoSection items={store.getState().items}/>
+                <FilterSection/>
+                <TodoSection/>
             </Fragment>
         )
     }

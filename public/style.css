@@ -80,6 +80,13 @@ ul {
     font-weight: 400;
 }
 
+.todo.empty {
+    width: 100%;
+    text-align: center;
+    font-weight: 400;
+    justify-content: center;
+}
+
 .todo .title.completed{
     text-decoration: line-through;
 }
