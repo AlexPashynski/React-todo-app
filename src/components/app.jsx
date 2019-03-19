@@ -1,35 +1,7 @@
-import React, {Component} from 'react';
-import { createStore } from 'redux';
+import React, {Component, Fragment} from 'react';
 import TodoSection from './todo-section'
-import uniqid from 'uniqid'
-
-const initialState = {
-    items: [
-        {
-            id: 0,
-            title: 'Learn react',
-            completed: false
-        }
-    ]
-};
-
-function reducer(state, action) {
-    if (action.type === 'ADD_TODO') {
-        return {
-            items: state.items.concat(
-                {
-                    id: uniqid(),
-                    title: action.title,
-                    completed: false
-                }
-            ),
-        };
-    } else {
-        return state;
-    }
-}
-
-const store = createStore(reducer, initialState);
+import FormsSection from './forms-section'
+import store from './store'
 
 class App extends Component {
 
@@ -38,7 +10,12 @@ class App extends Component {
     }
 
     render() {
-        return <TodoSection items={initialState.items}/>
+        return (
+            <Fragment>
+                <FormsSection/>
+                <TodoSection items={store.getState().items}/>
+            </Fragment>
+        )
     }
 }
 

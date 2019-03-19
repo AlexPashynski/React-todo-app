@@ -6,7 +6,7 @@ class TodoSection extends Component {
     render() {
 
         const items = this.props.items;
-        const renderedItems = items.map( item => {return <TodoItem item={item}/>})
+        const renderedItems = items.map( item => {return <TodoItem key={item.id} item={item}/>})
 
         return (
             <div className="todo-section">

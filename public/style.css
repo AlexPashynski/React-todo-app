@@ -46,6 +46,8 @@ ul {
     text-align: center;
     width: 30%;
     cursor: pointer;
+    font-family: Arial;
+    font-size: 1rem;
 }
 
 .form-btn:active {
@@ -76,6 +78,10 @@ ul {
     width: 85%;
     text-align: left;
     font-weight: 400;
+}
+
+.todo .title.completed{
+    text-decoration: line-through;
 }
 
 .todo .delete {
