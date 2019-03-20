@@ -13,27 +13,28 @@ class FormsSection extends Component {
         return (
             <div className="forms-section">
                 <div className="form-groups">
-                    <input type="text" onChange={(e) => this.changeAddInput(e)} className="addItem" value={this.state.addInput}/>
+                    <input type="text" onChange={(e) => this.changeAddInput(e)} placeholder="Enter task name here ..." className="addItem" value={this.state.addInput}/>
                     <button href="#" onClick={() => this.addToDoItem(this.state.addInput)} className="form-btn" id="add">Add</button>
                 </div>
                 <div className="form-groups">
-                    <input type="text" onChange={(e) => this.changeSearchInput(e)} className="searchItem" value={this.state.searchInput}/>
-                    <button className="form-btn" id="search">Search</button>
+                    <input type="text" onChange={(e) => this.changeSearchInput(e)} placeholder="Search task..." className="searchItem" value={this.state.searchInput}/>
                 </div>
             </div>
         )
     }
 
     addToDoItem = (title) => {
-        store.dispatch({
-            type: 'ADD_TODO',
-            item: {
-                id: uniqid(),
-                title: title,
-                completed: false
-            }
-        })
-        this.setState({addInput: ''})
+        if (title) {
+            store.dispatch({
+                type: 'ADD_TODO',
+                item: {
+                    id: uniqid(),
+                    title: title,
+                    completed: false
+                }
+            })
+            this.setState({addInput: ''})
+        }        
     }
 
     changeAddInput = (e) => {
@@ -42,8 +43,11 @@ class FormsSection extends Component {
     }
 
     changeSearchInput = (e) => {
-        let searchInput = e.target.value;
-        this.setState({searchInput})
+        store.dispatch({
+            type: 'SEARCH_FILTER',
+            searchFilter: e.target.value
+        })
+        this.setState({searchInput: e.target.value})
     }
 }
 

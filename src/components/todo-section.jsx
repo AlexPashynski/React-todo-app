@@ -5,16 +5,18 @@ import store from './store'
 class TodoSection extends Component {
 
     render() {
-
-        let {items, activeFilterId} = store.getState();
+        
+        let {items, activeFilterId, searchFilter} = store.getState();
+        let renderItems = searchFilter ? items.filter( item => item.title.toLowerCase().includes(searchFilter.toLowerCase())) : items
         let message = '';
         if (activeFilterId === 1) {
-            items = items.filter( item => item.completed === false);
+            items = renderItems.filter( item => item.completed === false);
             message = 'You don\'t have any tasks to do!'
         } else if (activeFilterId === 2) {
-            items = items.filter( item => item.completed === true);
+            items = renderItems.filter( item => item.completed === true);
             message = 'You don\'t have completed tasks!'
         } else if (activeFilterId === 3) {
+            items= renderItems;
             message = 'You don\'t have any tasks!'
         }
 

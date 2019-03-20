@@ -16,6 +16,7 @@ const initialState = {
             title: 'All'
         }
     ],
+    searchFilter: '',
     activeFilterId: 1
 };
 
@@ -34,6 +35,8 @@ function reducer(state, action) {
     } else if (action.type === 'APPLY_FILTER') {
         const tempState = {...state, activeFilterId: action.id};
         return tempState;
+    } else if (action.type === 'SEARCH_FILTER') {
+        return {...state, searchFilter: action.searchFilter};
     } else {
         return state;
     }
